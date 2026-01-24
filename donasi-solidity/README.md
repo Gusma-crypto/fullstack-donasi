@@ -37,6 +37,7 @@ ini adalah project sederhana untuk mengumpulkan dana donasi dengan meminimalkan 
 -- Auditor membaca test untuk menjawab: “Apakah kontrak ini benar, aman, dan tidak bisa disalahgunakan?”
 
 ## Struktur Test
+```bash
 Donasi Contract
  ├─ constructor
  │   └─ set owner correctly
@@ -52,7 +53,7 @@ Donasi Contract
  │   └─ emit event
  └─ getBalance()
      └─ return correct balance
-
+```
 ## CARA BERPIKIR TEST (INI KUNCI)
 Untuk setiap fungsi, tanyakan 3 hal:
 ✅ A. Kapan fungsi HARUS BERHASIL?
