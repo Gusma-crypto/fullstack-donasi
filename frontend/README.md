@@ -1,1 +1,10 @@
-This is a [Vite](https://vitejs.dev) project bootstrapped with [`create-wagmi`](https://github.com/wevm/wagmi/tree/main/packages/create-wagmi).
+# INSTALL WAGMI
+
+```shell
+npx create-next-app@latest frontend --ts --tailwind --eslint
+cd frontend
+npm install wagmi viem @tanstack/react-query
+```
+---
+
+##
