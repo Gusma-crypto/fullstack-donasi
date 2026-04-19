@@ -55,8 +55,18 @@ export function DonationDashboard() {
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
   const handleConnect = () => {
-    const connector = connectors[0]
-    if (connector) connect({ connector })
+    // Mencari connector WalletConnect agar muncul popup pilihan wallet (MetaMask, Binance, dll)
+    const wcConnector = connectors.find((c) => c.id === 'walletConnect')
+    const injectedConnector = connectors.find((c) => c.id === 'injected')
+
+    // Jika di HP/Browser biasa, gunakan WalletConnect
+    if (wcConnector) {
+      connect({ connector: wcConnector })
+    } 
+    // Jika di browser internal wallet (MetaMask Browser), gunakan Injected
+    else if (injectedConnector) {
+      connect({ connector: injectedConnector })
+    }
   }
 
   const handleDonate = () => {
@@ -109,7 +119,7 @@ export function DonationDashboard() {
               </p>
             </div>
             
-            <button onClick={() => disconnect()} className="text-[10px] bg-red-50 text-red-600 px-3 py-1.5 rounded-lg font-bold uppercase">Exit</button>
+            <button onClick={() => disconnect()} className="text-[10px] bg-red-50 text-red-600 px-3 py-1.5 rounded-lg font-bold uppercase">Log out</button>
           </div>
         </nav>
       )}
